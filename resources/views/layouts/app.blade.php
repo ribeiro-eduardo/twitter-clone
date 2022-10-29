@@ -18,19 +18,43 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+
             @include('layouts.navigation')
 
             <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
 
             <!-- Page Content -->
             <main>
+                @if (Session::has('success'))
+                    @livewire('util-components.success', ['message' => Session::get('success')])
+                @endif
+
+                @if (Session::has('error'))
+                    @livewire('util-components.error', ['message' => Session::get('error')])
+                @endif
+
+                @if (Session::has('warning'))
+                    @livewire('util-components.warning', ['message' => Session::get('warning')])
+                @endif
+
                 {{ $slot }}
+
+                <script>
+
+                    window.addEventListener('modalTemplate', event => {
+                        window.util.modalTemplate(event.detail.template, event.detail.model , event.detail.id, event.detail.tamanho);
+                    })
+
+                   </script>
             </main>
         </div>
+        @livewireScripts
     </body>
 </html>

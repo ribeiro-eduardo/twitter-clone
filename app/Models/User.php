@@ -26,6 +26,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
     ];
 
@@ -58,4 +59,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function followers()
+    {
+        return $this->belongsToMany(\App\Models\User::class, \App\Models\Following::class, "followed_user_id", "following_user_id");
+    }
+
+    public function followings()
+    {
+        return $this->belongsToMany(\App\Models\User::class, \App\Models\Following::class, "following_user_id", "followed_user_id");
+    }
 }
