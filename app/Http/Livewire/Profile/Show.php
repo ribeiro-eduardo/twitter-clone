@@ -21,7 +21,6 @@ class Show extends Component
                                     ->orderBy("created_at", "DESC")
                                     ->paginate($this->rows);
 
-
         return view('livewire.profile.show', compact("tweets"));
     }
 

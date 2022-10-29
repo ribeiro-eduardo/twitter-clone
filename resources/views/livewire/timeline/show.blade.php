@@ -22,12 +22,12 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <div class="flex text-center justify-items-center cursor-pointer" wire:click="goToProfilePage('{{ $tweet->author->username }}')">
-                            <img class="h-18 w-18 rounded-full object-cover" src="{{ $tweet->author->profile_photo_url }}" alt="{{ $tweet->author->name }}" />
+                            <img class="h-12 w-12 rounded-full object-cover" src="{{ $tweet->author->profile_photo_url }}" alt="{{ $tweet->author->name }}" />
                             <div class="ml-4 text-xl font-bold">{{ $tweet->author->name }}</div>
                             <br>
                             <div class="ml-4 text-md ">{{ "@" . $tweet->author->username }} - {{ date('d/m/Y H:i:s', strtotime($tweet->created_at)) }}</div>
                         </div>
-                        <div class="ml-20 text-xl">
+                        <div class="ml-16 text-xl">
                             {{ $tweet->description }}
                         </div>
                     </div>

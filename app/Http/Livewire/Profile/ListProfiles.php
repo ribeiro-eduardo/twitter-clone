@@ -32,11 +32,15 @@ class ListProfiles extends Component
     public function follow($userToBeFollowedId)
     {
         Auth::user()->followings()->attach($userToBeFollowedId);
+        session()->flash('success', 'You are now following @' . \App\Models\User::find($userToBeFollowedId)->username. '!');
+        return redirect()->route('list_profiles');
     }
 
     public function unfollow($userToBeFUnfollowedId)
     {
         Auth::user()->followings()->detach($userToBeFUnfollowedId);
+        session()->flash('success', 'You are not following @' . \App\Models\User::find($userToBeFUnfollowedId)->username. ' anymore!');
+        return redirect()->route('list_profiles');
     }
 
     public function goToProfilePage($username)
