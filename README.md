@@ -1,14 +1,5 @@
 ## About Twitter Clone - HOW TO RUN IT
 
-<!-- - [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
- -->
-
  I created the project using sqlite3. So, I made some Seeders in order to get your tests easier to be done.
  - Once you clone the project, rename the .env-example to .env
  - This file contains all the info needed to run the project, such as database information (you could run it on sqlite or mysql - instructions written on .env)
